@@ -9,6 +9,16 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1>Good Morning</h1>
+        <h1>Post</h1>
+        <ul>
+        {% for post in object_list %}
+           <li><a href="{% url 'article-detail' post.pk %}">
+           {{ post.title }}</a> - {{ post.author.first_name }}<br>
+           {{ post.author.last_name }}
+           {{ post.author.email }}
+           {{ post.body }}
+           </li>
+        {% endfor %}
+        </ul>
     </body>
 </html>

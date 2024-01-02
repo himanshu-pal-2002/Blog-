@@ -1,10 +1,10 @@
 from django import forms
 from .models import Post
-from django.forms import ModelForm
+# from django.forms import ModelForm
 
 class PostForm(forms.ModelForm):
     class Meta:
-        Model = Post
+        model = Post
         fields = ('title', 'title_tag', 'author', 'body')
         
         widgets = {
@@ -12,6 +12,6 @@ class PostForm(forms.ModelForm):
             'title' : forms.TextInput(attrs={'class': 'form-control'}),
             'title_tag' : forms.TextInput(attrs={'class': 'form-control'}),
             'author' : forms.Select(attrs={'class': 'form-control'}),
-            'body' : forms.Textarea(attrs={'class': 'form-control'})
+            'body' : forms.Textarea(attrs={'class': 'form-control'}),
         }
     

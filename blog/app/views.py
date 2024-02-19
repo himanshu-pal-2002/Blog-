@@ -5,6 +5,7 @@ from .models import Post
 from .forms import PostForm,EditForm
 
 
+
 class HomeView(ListView):
     
     model = Post

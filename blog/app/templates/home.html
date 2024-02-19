@@ -10,8 +10,13 @@
            {{ post.author.last_name }} - 
            
            <small>
+
+        {% if user.is_authenticated %}
+        
            <a href="{% url 'update_post' post.pk %}">(Edit)</a>
            <a href="{% url 'delete_post' post.pk %}">(Delete)</a>
+           
+        {% endif %}
            
            </small><br>
 

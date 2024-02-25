@@ -2,6 +2,7 @@ from django import forms
 from .models import Post
 # from django.forms import ModelForm
 
+# Forms for Post:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -16,7 +17,7 @@ class PostForm(forms.ModelForm):
             'body' : forms.Textarea(attrs={'class': 'form-control'}),
         }
         
-        
+# Class For EditForm: 
 class EditForm(forms.ModelForm):
     class Meta:
         model = Post

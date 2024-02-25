@@ -4,9 +4,7 @@ from django.urls import reverse
 from django.contrib.auth import logout,login,authenticate
 from django.contrib.auth.models import User
 
-
-
-
+# Function Based Views for Register User:
 def register_user(request):
     if request.method == 'POST':
         un = request.POST['un']
@@ -18,6 +16,7 @@ def register_user(request):
 
     return render(request,'registration/registration.html')
 
+# Function Based Views for User Login:
 def login_user(request):
     if request.method == 'POST':
         un = request.POST['un']
@@ -33,6 +32,7 @@ def login_user(request):
 
     return render(request,'registration/login.html')
 
+# Function Based Views for Logout User:
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))

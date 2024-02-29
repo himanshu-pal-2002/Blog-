@@ -5,8 +5,11 @@ from .models import Post,Category
 from .forms import PostForm,EditForm
 from django.http import HttpResponseRedirect
 
+# Functions for Likes:
 def LikeView(request, pk):
+    print(pk)
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    print(post,request.POST['post_id'])
     post.likes.add(request.user)
     return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
 

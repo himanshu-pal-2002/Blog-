@@ -31,7 +31,7 @@ post author : {{post.author.id}} -->
 <form action="{% url 'like_post' post.pk %}" method="POST">
     {% csrf_token %}
     <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm ">Like
-    </button>
+    </button> - {{ total_likes }} Likes
 </form>
 
 {% endblock %}

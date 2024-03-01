@@ -5,9 +5,8 @@ from .models import Post,Category
 from .forms import PostForm,EditForm
 from django.http import HttpResponseRedirect
 
-# Functions for Likes:
+# Functions for Likes and Dislike:
 def LikeView(request, pk):
-    # print(pk)
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     liked = False
     if post.likes.filter(id=request.user.id).exists():
@@ -16,8 +15,6 @@ def LikeView(request, pk):
     else:
         post.likes.add(request.user)
         liked = True
-
-    # print(post,request.POST['post_id'])
     post.likes.add(request.user)
     return HttpResponseRedirect(reverse('article-detail', args=[str(pk)]))
 
